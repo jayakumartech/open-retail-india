@@ -38,3 +38,5 @@ body:not(.dark) dialog .dialog-head h2 {
 }
 
 .people-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}.people-grid h3{font-size:14px;display:flex;justify-content:space-between;align-items:center}.party-row{border:1px solid var(--line);border-radius:11px;padding:11px;margin:8px 0;font-size:13px}.party-row small{display:block;color:var(--muted);margin-top:5px}textarea{width:100%;padding:12px;border:1px solid #dce4ec;border-radius:11px;font:inherit;font-size:14px;background:white;color:#182235;resize:vertical}body.dark textarea{background:#1b2b3d;color:#edf4fa;border-color:#34485d}@media(max-width:650px){.people-grid{grid-template-columns:1fr}}
+
+.report-content{padding:8px 0}.report-line{display:flex;justify-content:space-between;gap:12px;padding:11px 2px;border-bottom:1px solid var(--line);font-size:13px}.report-line b{text-align:right}.report-content .fineprint{margin-top:16px}
