@@ -7,3 +7,32 @@
 dialog, dialog form{background:var(--panel);color:var(--ink)}
 dialog label, dialog .dialog-head h2, dialog .dialog-head .eyebrow{color:var(--ink)}
 dialog .eyebrow{color:var(--accent)}
+
+/* V1.1.2 hard override: native dialogs must follow the active theme */
+body.dark dialog,
+body.dark dialog form {
+  background-color: #172536 !important;
+  color: #edf4fa !important;
+}
+body.dark dialog label,
+body.dark dialog label span,
+body.dark dialog .dialog-head h2 {
+  color: #edf4fa !important;
+}
+body.dark dialog .eyebrow { color: #58c9b5 !important; }
+body.dark dialog input,
+body.dark dialog select {
+  background-color: #1b2b3d !important;
+  color: #edf4fa !important;
+  border-color: #34485d !important;
+}
+body:not(.dark) dialog,
+body:not(.dark) dialog form {
+  background-color: #ffffff !important;
+  color: #182235 !important;
+}
+body:not(.dark) dialog label,
+body:not(.dark) dialog label span,
+body:not(.dark) dialog .dialog-head h2 {
+  color: #182235 !important;
+}
