@@ -1,0 +1,9 @@
+{
+  "name": "Open Retail India",
+  "short_name": "Open Retail",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f3f6fa",
+  "theme_color": "#101827",
+  "description": "Mobile-first open-source retail billing and inventory."
+}

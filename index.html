@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#101827">
+  <meta name="description" content="Open Retail India — simple, mobile-first billing and inventory for small businesses.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+  <title>Open Retail India</title>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><div class="brand-mark">OR</div><div><strong>Open Retail India</strong><small id="shopSubtitle">Retail workspace</small></div></div>
+    <div class="top-actions">
+      <button id="langBtn" class="icon-btn" aria-label="Change language">தமிழ்</button>
+      <button id="themeBtn" class="icon-btn" aria-label="Toggle theme">◐</button>
+    </div>
+  </header>
+  <main class="container">
+    <section class="welcome">
+      <div><p class="eyebrow" data-i18n="overview">OVERVIEW</p><h1 data-i18n="dashboard">Dashboard</h1><p class="muted" data-i18n="welcome">Your shop, at a glance.</p></div>
+      <div class="date-pill" id="today"></div>
+    </section>
+    <section class="stats">
+      <article class="stat-card"><span data-i18n="todaySales">Today's sales</span><strong id="salesValue">₹0.00</strong><small data-i18n="salesCaption">Total billed today</small></article>
+      <article class="stat-card"><span data-i18n="products">Products</span><strong id="productCount">0</strong><small data-i18n="productsCaption">Items in catalogue</small></article>
+      <article class="stat-card"><span data-i18n="lowStock">Low stock</span><strong id="lowStockCount">0</strong><small data-i18n="stockCaption">Need attention</small></article>
+    </section>
+    <section class="panel">
+      <div class="section-head"><div><p class="eyebrow" data-i18n="quickActions">QUICK ACTIONS</p><h2 data-i18n="getStarted">Get started</h2></div></div>
+      <div class="action-grid">
+        <button class="action primary" id="addProductBtn"><span>＋</span><b data-i18n="addProduct">Add product</b><small data-i18n="addProductSub">Build your catalogue</small></button>
+        <button class="action" id="newSaleBtn"><span>₹</span><b data-i18n="newSale">New sale</b><small data-i18n="newSaleSub">Create a bill</small></button>
+        <button class="action" id="viewStockBtn"><span>▤</span><b data-i18n="inventory">Inventory</b><small data-i18n="inventorySub">View stock levels</small></button>
+        <button class="action" id="backupBtn"><span>⇩</span><b data-i18n="backup">Backup data</b><small data-i18n="backupSub">Export your records</small></button>
+      </div>
+    </section>
+    <section class="panel" id="inventoryPanel">
+      <div class="section-head"><div><p class="eyebrow" data-i18n="catalogue">CATALOGUE</p><h2 data-i18n="recentProducts">Products</h2></div><span class="count" id="catalogueCount">0 items</span></div>
+      <div class="table-wrap"><table><thead><tr><th data-i18n="item">Item</th><th data-i18n="price">Price</th><th data-i18n="qty">Qty</th></tr></thead><tbody id="productRows"><tr><td colspan="3" class="empty" data-i18n="emptyProducts">No products yet. Add your first product.</td></tr></tbody></table></div>
+    </section>
+    <section class="panel">
+      <div class="section-head"><div><p class="eyebrow" data-i18n="recentActivity">ACTIVITY</p><h2 data-i18n="recentBills">Recent bills</h2></div></div>
+      <div id="billList" class="bill-list"><p class="empty" data-i18n="emptyBills">No bills created yet.</p></div>
+    </section>
+    <footer>Open Retail India <span>·</span> MIT License <span>·</span> Version 1.0.0</footer>
+  </main>
+
+  <dialog id="productDialog">
+    <form id="productForm" method="dialog">
+      <div class="dialog-head"><div><p class="eyebrow">CATALOGUE</p><h2 data-i18n="addProduct">Add product</h2></div><button type="button" class="close" data-close="productDialog">×</button></div>
+      <label><span data-i18n="productName">Product name</span><input name="name" required maxlength="80" placeholder="e.g. Steel water bottle"></label>
+      <div class="form-row"><label><span data-i18n="sellingPrice">Selling price (₹)</span><input name="price" type="number" min="0" step="0.01" required></label><label><span data-i18n="quantity">Quantity</span><input name="qty" type="number" min="0" step="1" required></label></div>
+      <label><span data-i18n="sku">Product code (optional)</span><input name="sku" maxlength="30" placeholder="SKU-001"></label>
+      <button class="submit-btn" type="submit" data-i18n="saveProduct">Save product</button>
+    </form>
+  </dialog>
+
+  <dialog id="saleDialog">
+    <form id="saleForm" method="dialog">
+      <div class="dialog-head"><div><p class="eyebrow">BILLING</p><h2 data-i18n="newSale">New sale</h2></div><button type="button" class="close" data-close="saleDialog">×</button></div>
+      <label><span data-i18n="selectProduct">Select product</span><select name="productId" id="saleProduct" required></select></label>
+      <label><span data-i18n="quantity">Quantity</span><input name="qty" type="number" min="1" step="1" value="1" required></label>
+      <p class="sale-total"><span data-i18n="billTotal">Bill total</span><strong id="saleTotal">₹0.00</strong></p>
+      <button class="submit-btn" type="submit" data-i18n="createBill">Create bill</button>
+      <p class="fineprint" data-i18n="saleNote">Demo billing only. GST, invoice PDF and returns will be added in upcoming releases.</p>
+    </form>
+  </dialog>
+  <div id="toast" role="status" class="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
